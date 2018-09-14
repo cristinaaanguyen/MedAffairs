@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -147,13 +154,100 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicalAffairsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809121822410_InitialModel.cs" />
+    <Compile Include="Migrations\201809121822410_InitialModel.Designer.cs">
+      <DependentUpon>201809121822410_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809122318459_PopulateBusinessUnits.cs" />
+    <Compile Include="Migrations\201809122318459_PopulateBusinessUnits.Designer.cs">
+      <DependentUpon>201809122318459_PopulateBusinessUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809122321546_AddingOtherTables.cs" />
+    <Compile Include="Migrations\201809122321546_AddingOtherTables.Designer.cs">
+      <DependentUpon>201809122321546_AddingOtherTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131751074_UpdateEduGrant.cs" />
+    <Compile Include="Migrations\201809131751074_UpdateEduGrant.Designer.cs">
+      <DependentUpon>201809131751074_UpdateEduGrant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131753370_UpdateEduGrant1.cs" />
+    <Compile Include="Migrations\201809131753370_UpdateEduGrant1.Designer.cs">
+      <DependentUpon>201809131753370_UpdateEduGrant1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131758177_PopulateBusiniessUnitsandEduGrant.cs" />
+    <Compile Include="Migrations\201809131758177_PopulateBusiniessUnitsandEduGrant.Designer.cs">
+      <DependentUpon>201809131758177_PopulateBusiniessUnitsandEduGrant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131802468_AddBusinessUnit.cs" />
+    <Compile Include="Migrations\201809131802468_AddBusinessUnit.Designer.cs">
+      <DependentUpon>201809131802468_AddBusinessUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131804469_AddEducationGrant.cs" />
+    <Compile Include="Migrations\201809131804469_AddEducationGrant.Designer.cs">
+      <DependentUpon>201809131804469_AddEducationGrant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131814162_FixEduGrants.cs" />
+    <Compile Include="Migrations\201809131814162_FixEduGrants.Designer.cs">
+      <DependentUpon>201809131814162_FixEduGrants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131816533_FixEduGrants1.cs" />
+    <Compile Include="Migrations\201809131816533_FixEduGrants1.Designer.cs">
+      <DependentUpon>201809131816533_FixEduGrants1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131950230_addEdugrant2.cs" />
+    <Compile Include="Migrations\201809131950230_addEdugrant2.Designer.cs">
+      <DependentUpon>201809131950230_addEdugrant2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132017065_addEdugrant3.cs" />
+    <Compile Include="Migrations\201809132017065_addEdugrant3.Designer.cs">
+      <DependentUpon>201809132017065_addEdugrant3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132022556_addEdugrant4.cs" />
+    <Compile Include="Migrations\201809132022556_addEdugrant4.Designer.cs">
+      <DependentUpon>201809132022556_addEdugrant4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132023391_addEdugrant5.cs" />
+    <Compile Include="Migrations\201809132023391_addEdugrant5.Designer.cs">
+      <DependentUpon>201809132023391_addEdugrant5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132037373_Testing.cs" />
+    <Compile Include="Migrations\201809132037373_Testing.Designer.cs">
+      <DependentUpon>201809132037373_Testing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132042554_tsng2.cs" />
+    <Compile Include="Migrations\201809132042554_tsng2.Designer.cs">
+      <DependentUpon>201809132042554_tsng2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809132244576_removeRequired.cs" />
+    <Compile Include="Migrations\201809132244576_removeRequired.Designer.cs">
+      <DependentUpon>201809132244576_removeRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809142100334_updateunit.cs" />
+    <Compile Include="Migrations\201809142100334_updateunit.Designer.cs">
+      <DependentUpon>201809142100334_updateunit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809142137386_updateunit2.cs" />
+    <Compile Include="Migrations\201809142137386_updateunit2.Designer.cs">
+      <DependentUpon>201809142137386_updateunit2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809142140133_updateunit21.cs" />
+    <Compile Include="Migrations\201809142140133_updateunit21.Designer.cs">
+      <DependentUpon>201809142140133_updateunit21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessUnit.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\EducationGrant.cs" />
+    <Compile Include="Models\ResearchGrant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AdminPanelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -196,6 +290,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\MedicalAffairs\MedicalAffairsView.cshtml" />
+    <Content Include="Views\AdminPanel\Index.cshtml" />
+    <Content Include="Views\AdminPanel\BusinessUnitForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,6 +308,68 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809121822410_InitialModel.resx">
+      <DependentUpon>201809121822410_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122318459_PopulateBusinessUnits.resx">
+      <DependentUpon>201809122318459_PopulateBusinessUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122321546_AddingOtherTables.resx">
+      <DependentUpon>201809122321546_AddingOtherTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131751074_UpdateEduGrant.resx">
+      <DependentUpon>201809131751074_UpdateEduGrant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131753370_UpdateEduGrant1.resx">
+      <DependentUpon>201809131753370_UpdateEduGrant1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131758177_PopulateBusiniessUnitsandEduGrant.resx">
+      <DependentUpon>201809131758177_PopulateBusiniessUnitsandEduGrant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131802468_AddBusinessUnit.resx">
+      <DependentUpon>201809131802468_AddBusinessUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131804469_AddEducationGrant.resx">
+      <DependentUpon>201809131804469_AddEducationGrant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131814162_FixEduGrants.resx">
+      <DependentUpon>201809131814162_FixEduGrants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131816533_FixEduGrants1.resx">
+      <DependentUpon>201809131816533_FixEduGrants1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131950230_addEdugrant2.resx">
+      <DependentUpon>201809131950230_addEdugrant2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132017065_addEdugrant3.resx">
+      <DependentUpon>201809132017065_addEdugrant3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132022556_addEdugrant4.resx">
+      <DependentUpon>201809132022556_addEdugrant4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132023391_addEdugrant5.resx">
+      <DependentUpon>201809132023391_addEdugrant5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132037373_Testing.resx">
+      <DependentUpon>201809132037373_Testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132042554_tsng2.resx">
+      <DependentUpon>201809132042554_tsng2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809132244576_removeRequired.resx">
+      <DependentUpon>201809132244576_removeRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809142100334_updateunit.resx">
+      <DependentUpon>201809142100334_updateunit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809142137386_updateunit2.resx">
+      <DependentUpon>201809142137386_updateunit2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809142140133_updateunit21.resx">
+      <DependentUpon>201809142140133_updateunit21.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

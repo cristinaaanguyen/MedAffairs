@@ -1,0 +1,49 @@
+﻿@model MedicalAffairsSample.Models.BusinessUnit
+
+@{
+    ViewBag.Title = "BusinessUnitForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BusinessUnitForm</h2>
+
+
+<div class="row">
+    <div class="col-md-3">
+
+        @using (Html.BeginForm("SaveBusinessUnit", "AdminPanel"))
+        {
+
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.Description)
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.InfoLink)
+                @Html.TextBoxFor(m => m.InfoLink, new { @class = "form-control" })
+            </div>
+
+
+             @Html.HiddenFor(m => m.Id) <!-- need to add ID as hidden field  -->
+            @Html.AntiForgeryToken()
+
+            <button type="submit" class="btn btn-primary">Save</button>
+
+
+
+        }
+
+
+
+
+    </div>
+</div>

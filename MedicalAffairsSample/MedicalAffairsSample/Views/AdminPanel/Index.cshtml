@@ -1,0 +1,98 @@
+﻿@model MedicalAffairsSample.ViewModels.AdminPanelViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin Panel</h2>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped" id="businessunits">
+            <thead>
+                <tr>
+                    <th>Business Unit Id</th>
+                    <th> Business Unit Name </th>
+                    <th> Business Unit Description </th>
+                    <th> Business Unit Info link </th>
+
+                    <th> Delete </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var businessUnit in Model.BusinessUnits)
+                {
+
+                <tr>
+                    <td>@Html.ActionLink(businessUnit.Id.ToString(), "EditBusinessUnit", "AdminPanel", new { id = businessUnit.Id }, new { target = "_blank" })</td>
+                    <td>@businessUnit.Name</td>
+                    <td>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h8 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse1">Click to show description</a>
+                                    </h8>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        @businessUnit.Description
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+
+
+
+                    <td><a href="@businessUnit.InfoLink"> @businessUnit.InfoLink</a></td>
+
+
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteBusinessUnit", "AdminPanel", new { id = businessUnit.Id }, new { @class = "btn btn-primary", @OnClick = "return confirm('Are you sure you to delete this Record?');" })
+                    </td>
+                    <!-- <td> <button class="btn-link js-delete" data-customer-id="@businessUnit.Id"> Delete </button></td>-->
+
+                </tr>
+
+                }
+            </tbody>
+
+
+        </table>
+        <input type="button" value="Add" class="btn btn-danger pull-right" onclick="location.href='@Url.Action("AddBusinessUnit", "AdminPanel")'" />
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#businesunits").on("click", ".js-delete", function () { //change selector to only customers table and provide filter as second method of on method; no matter how many customers on the page, we'll only have one click handler for all delete buttons bc our handler is hooked to #customer selector
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete this Business Unit?", function (result) {  //bootbox function takes a callback function
+
+                    if (result) {
+
+                        //Can we go back to using c#?
+
+                    }
+
+                });
+
+
+            });
+
+
+        });
+
+    </script>
+
+}
